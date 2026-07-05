@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { TEMPLATE_CONFIG } from '../../config/template';
-import { MapPin, Calendar, Clock, ExternalLink } from 'lucide-react';
+import { MapPin, Calendar, Clock, ExternalLink, Download } from 'lucide-react';
 
 export const DetailsScene = () => {
   const { eventDetails } = TEMPLATE_CONFIG;
@@ -43,7 +43,14 @@ export const DetailsScene = () => {
         </div>
 
         {/* Action Buttons */}
-        <div className="flex flex-col md:flex-row justify-center gap-4 border-t-2 border-pink-200 pt-8 mt-4">
+        <div className="flex flex-col md:flex-row justify-center flex-wrap gap-4 border-t-2 border-pink-200 pt-8 mt-4">
+          <a 
+            href="/Zias_Invitation_Card.png"
+            download="Elaiza_Zia_Colleen_Invitation.png"
+            className="flex items-center justify-center gap-2 px-6 py-3 bg-pink-500 border-2 border-pink-500 rounded-full text-white font-bold font-sans text-sm tracking-wider uppercase hover:bg-pink-600 transition-all active:scale-95 shadow-[0_4px_10px_rgba(255,105,180,0.4)]"
+          >
+            <Download className="w-4 h-4" /> Download Card
+          </a>
           <a 
             href={eventDetails.mapsUrl}
             target="_blank"
