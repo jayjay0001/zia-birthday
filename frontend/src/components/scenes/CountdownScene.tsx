@@ -34,31 +34,31 @@ export const CountdownScene = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 1, ease: "easeOut" }}
-        className="w-full max-w-2xl bg-white/5 backdrop-blur-xl border border-princess-gold/30 p-[1px] rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.3)]"
+        className="w-full max-w-2xl bg-white/40 backdrop-blur-xl border-2 border-pink-300 rounded-3xl shadow-[0_10px_30px_rgba(255,105,180,0.3)]"
       >
         <div className="rounded-[23px] py-10 px-6 text-center">
-          <p className="text-princess-gold font-sans text-xs md:text-sm tracking-[0.4em] uppercase mb-8">
+          <p className="text-pink-500 font-bold font-sans text-xs md:text-sm tracking-[0.4em] uppercase mb-8">
             The Magic Begins In
           </p>
 
           <div className="flex justify-center gap-6 md:gap-12">
             <div className="flex flex-col items-center">
-              <span className="text-4xl md:text-6xl font-serif text-white mb-2">{String(timeLeft.days).padStart(2, '0')}</span>
-              <span className="text-white/50 text-xs tracking-widest uppercase">Days</span>
+              <span className="text-4xl md:text-6xl font-serif text-pink-600 font-bold mb-2">{String(timeLeft.days).padStart(2, '0')}</span>
+              <span className="text-pink-500 font-bold text-xs tracking-widest uppercase">Days</span>
             </div>
             
-            <div className="text-4xl md:text-6xl font-serif text-princess-gold/50 -mt-2">:</div>
+            <div className="text-4xl md:text-6xl font-serif text-pink-300 font-bold -mt-2">:</div>
             
             <div className="flex flex-col items-center">
-              <span className="text-4xl md:text-6xl font-serif text-white mb-2">{String(timeLeft.hours).padStart(2, '0')}</span>
-              <span className="text-white/50 text-xs tracking-widest uppercase">Hours</span>
+              <span className="text-4xl md:text-6xl font-serif text-pink-600 font-bold mb-2">{String(timeLeft.hours).padStart(2, '0')}</span>
+              <span className="text-pink-500 font-bold text-xs tracking-widest uppercase">Hours</span>
             </div>
             
-            <div className="text-4xl md:text-6xl font-serif text-princess-gold/50 -mt-2">:</div>
+            <div className="text-4xl md:text-6xl font-serif text-pink-300 font-bold -mt-2">:</div>
             
             <div className="flex flex-col items-center">
-              <span className="text-4xl md:text-6xl font-serif text-white mb-2">{String(timeLeft.minutes).padStart(2, '0')}</span>
-              <span className="text-white/50 text-xs tracking-widest uppercase">Mins</span>
+              <span className="text-4xl md:text-6xl font-serif text-pink-600 font-bold mb-2">{String(timeLeft.minutes).padStart(2, '0')}</span>
+              <span className="text-pink-500 font-bold text-xs tracking-widest uppercase">Mins</span>
             </div>
           </div>
         </div>

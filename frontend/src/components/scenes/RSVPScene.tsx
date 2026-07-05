@@ -40,7 +40,7 @@ export const RSVPScene = () => {
         transition={{ duration: 1, ease: "easeOut" }}
         className="w-full max-w-xl bg-white/70 backdrop-blur-xl border-2 border-pink-300 rounded-3xl p-8 md:p-12 shadow-[0_10px_30px_rgba(255,105,180,0.3)] relative overflow-hidden"
       >
-        <h2 className="text-3xl md:text-5xl font-serif text-pink-600 font-bold mb-2 text-center drop-shadow-[0_2px_5px_rgba(255,105,180,0.3)] relative z-10">
+        <h2 className="text-3xl md:text-5xl font-serif text-pink-600 font-bold mb-2 text-center drop-shadow-md relative z-10">
           RSVP
         </h2>
         <p className="text-pink-800 font-bold font-sans text-sm tracking-wider text-center mb-8 relative z-10">

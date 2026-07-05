@@ -9,6 +9,7 @@ import { CelebrantScene } from './CelebrantScene';
 import { MemoriesScene } from './MemoriesScene';
 import { ThemeScene } from './ThemeScene';
 import { DetailsScene } from './DetailsScene';
+import { CountdownScene } from './CountdownScene';
 import { RSVPScene } from './RSVPScene';
 
 const ScrollSection = ({ children, index }: { children: React.ReactNode, index: number }) => {
@@ -89,12 +90,12 @@ export const ScrollJourney = () => {
             transition={{ duration: 1.5, delay: 0.5 }}
             className="text-center"
           >
-            <h1 className="text-[#ff1493] font-disney text-6xl md:text-8xl drop-shadow-[0_4px_15px_rgba(255,255,255,1)] tracking-wide mb-6">
+            <h1 className="text-white font-disney text-6xl md:text-8xl drop-shadow-[0_4px_10px_rgba(0,0,0,0.6)] tracking-wide mb-6">
               Zia's Magical Kingdom
             </h1>
             <div className="flex flex-col items-center gap-2 animate-bounce">
-              <span className="text-[#ff1493] font-sans font-bold tracking-[0.3em] uppercase text-sm drop-shadow-[0_2px_5px_rgba(255,255,255,0.8)]">Scroll to Explore</span>
-              <svg className="w-8 h-8 text-[#ff1493] drop-shadow-[0_2px_5px_rgba(255,255,255,0.8)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <span className="text-white font-sans font-bold tracking-[0.3em] uppercase text-sm drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">Scroll to Explore</span>
+              <svg className="w-8 h-8 text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
               </svg>
             </div>
@@ -124,6 +125,10 @@ export const ScrollJourney = () => {
         </ScrollSection>
 
         <ScrollSection index={5}>
+          <CountdownScene />
+        </ScrollSection>
+
+        <ScrollSection index={6}>
           <div className="bg-white/70 backdrop-blur-2xl rounded-[3rem] border-4 border-pink-400 shadow-[0_0_50px_rgba(255,105,180,0.6)] p-4 md:p-8">
             <RSVPScene />
           </div>

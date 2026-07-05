@@ -54,16 +54,16 @@ export const TEMPLATE_CONFIG = {
   },
 
   eventDetails: {
-    date: "Saturday, August 15th",
+    date: "Saturday, August 8th",
     time: "2:00 PM - 5:00 PM",
     venue: "Grand Ballroom",
     address: "123 Royal Castle St.",
     mapsUrl: "https://maps.google.com/?q=123+Royal+Castle+St",
-    calendarUrl: "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Zia%27s+7th+Birthday&dates=20260815T140000/20260815T170000&details=Royal+Ball+Birthday+Party&location=123+Royal+Castle+St"
+    calendarUrl: "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Zia%27s+7th+Birthday&dates=20260808T140000/20260808T170000&details=Royal+Ball+Birthday+Party&location=123+Royal+Castle+St"
   },
 
   countdown: {
-    targetDate: "2026-08-15T14:00:00"
+    targetDate: "2026-08-08T14:00:00"
   },
 
   goodbye: {

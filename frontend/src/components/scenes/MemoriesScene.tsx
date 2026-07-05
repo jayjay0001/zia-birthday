@@ -21,7 +21,7 @@ export const MemoriesScene = () => {
         <p className="text-pink-500 font-serif font-bold text-xs md:text-sm tracking-[0.4em] uppercase mb-2">
           A Royal Journey
         </p>
-        <h2 className="text-4xl md:text-6xl font-serif text-pink-600 font-bold tracking-wide drop-shadow-[0_2px_5px_rgba(255,105,180,0.4)]">
+        <h2 className="text-4xl md:text-6xl font-serif text-pink-600 font-bold tracking-wide drop-shadow-md">
           My Storybook
         </h2>
         <p className="text-pink-400 font-bold text-xs font-sans tracking-widest uppercase mt-4 animate-pulse">

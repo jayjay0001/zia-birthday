@@ -17,7 +17,7 @@ export const DetailsScene = () => {
         transition={{ duration: 1, ease: "easeOut", y: { duration: 6, repeat: Infinity, ease: "easeInOut" } }}
         className="relative w-full max-w-2xl bg-white/50 backdrop-blur-2xl border-y-2 border-pink-300 py-12 px-6 md:px-16 text-center overflow-hidden rounded-3xl shadow-[0_10px_30px_rgba(255,105,180,0.3)]"
       >
-        <h2 className="text-3xl md:text-5xl font-serif text-pink-600 font-bold mb-10 drop-shadow-[0_2px_5px_rgba(255,105,180,0.3)]">
+        <h2 className="text-3xl md:text-5xl font-serif text-pink-600 font-bold mb-10 drop-shadow-md">
           Event Details
         </h2>
 

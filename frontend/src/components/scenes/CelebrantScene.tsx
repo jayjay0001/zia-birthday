@@ -33,7 +33,7 @@ export const CelebrantScene = () => {
            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_#ffffff_1px,_transparent_2px)] bg-[size:15px_15px] opacity-30 animate-pulse"></div>
         </motion.div>
 
-         <h2 className="text-5xl md:text-7xl font-disney text-pink-600 tracking-wide drop-shadow-[0_4px_5px_rgba(255,105,180,0.4)] mb-6">
+         <h2 className="text-5xl md:text-7xl font-disney text-pink-600 tracking-wide drop-shadow-md mb-6">
           {star.name}
         </h2>
         
