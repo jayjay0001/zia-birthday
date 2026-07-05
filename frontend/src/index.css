@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-princess-blush: #fdf0f5;
+  --color-princess-rose: #f48fb1;
+  --color-princess-gold: #f3c623;
+  --color-princess-dark: #4a1c40;
+  --color-princess-white: #ffffff;
+  
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-serif: 'Playfair Display', serif;
+  --font-cinzel: 'Cinzel', serif;
+  --font-disney: 'Berkshire Swash', cursive;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-princess-dark);
+    color: var(--color-princess-white);
+    overflow-x: hidden;
+    margin: 0;
+    font-family: var(--font-sans);
+  }
+}
+
+/* Custom background pattern for a premium Princess feel */
+.princess-bg {
+  background-color: #4a1c40;
+  background-image: radial-gradient(#f3c623 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+@layer utilities {
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+}
