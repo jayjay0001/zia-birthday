@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ParticleEffects } from '../ParticleEffects';
-import loadingBg from '../../assets/disney_intro.png';
+import loadingBg from '../../assets/pink_castle.png';
 import { useAudio } from '../AudioProvider';
 
 // Minimalist, premium SVG Butterfly

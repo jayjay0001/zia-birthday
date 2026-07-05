@@ -18,13 +18,13 @@ export const MemoriesScene = () => {
         transition={{ duration: 1 }}
         className="text-center mb-10 z-10 px-4"
       >
-        <p className="text-princess-gold font-serif text-xs md:text-sm tracking-[0.4em] uppercase mb-2 drop-shadow-md">
+        <p className="text-pink-500 font-serif font-bold text-xs md:text-sm tracking-[0.4em] uppercase mb-2">
           A Royal Journey
         </p>
-        <h2 className="text-4xl md:text-6xl font-serif text-white tracking-wide drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]">
+        <h2 className="text-4xl md:text-6xl font-serif text-pink-600 font-bold tracking-wide drop-shadow-[0_2px_5px_rgba(255,105,180,0.4)]">
           My Storybook
         </h2>
-        <p className="text-white/50 text-xs font-sans tracking-widest uppercase mt-4 animate-pulse">
+        <p className="text-pink-400 font-bold text-xs font-sans tracking-widest uppercase mt-4 animate-pulse">
           ← Swipe to explore →
         </p>
       </motion.div>
@@ -42,14 +42,14 @@ export const MemoriesScene = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: "100px" }}
             transition={{ duration: 0.8, delay: index * 0.1 }}
-            className="snap-center shrink-0 relative w-[80vw] max-w-sm md:max-w-md aspect-[4/5] bg-white/10 backdrop-blur-xl p-4 pb-24 md:p-6 md:pb-28 rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-white/20 flex flex-col group hover:-translate-y-2 transition-transform duration-500"
+            className="snap-center shrink-0 relative w-[80vw] max-w-sm md:max-w-md aspect-[4/5] bg-white/90 backdrop-blur-xl p-4 pb-24 md:p-6 md:pb-28 rounded-[2rem] shadow-[0_10px_30px_rgba(255,105,180,0.3)] border-2 border-pink-200 flex flex-col group hover:-translate-y-2 transition-transform duration-500"
           >
             {/* Ambient Glow behind card */}
             <div className="absolute inset-0 bg-princess-gold/20 opacity-0 group-hover:opacity-100 blur-[50px] transition-opacity duration-700 pointer-events-none -z-10 rounded-[2rem]"></div>
 
             {/* The Photo/Video Area Placeholder */}
-            <div className="flex-1 bg-black/40 border border-princess-gold/30 flex flex-col items-center justify-center overflow-hidden relative shadow-inner rounded-xl group-hover:border-princess-gold/60 transition-colors duration-500">
-               <span className="text-white/80 font-serif font-medium text-sm md:text-lg z-10 tracking-widest uppercase">
+            <div className="flex-1 bg-pink-50 border-2 border-pink-200 flex flex-col items-center justify-center overflow-hidden relative shadow-inner rounded-xl group-hover:border-pink-300 transition-colors duration-500">
+               <span className="text-pink-400 font-serif font-bold text-sm md:text-lg z-10 tracking-widest uppercase">
                  [ {memory.image} ]
                </span>
                <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_#ffffff_2px,_transparent_3px)] bg-[size:20px_20px]"></div>
@@ -57,7 +57,7 @@ export const MemoriesScene = () => {
             
             {/* The Frame Text */}
             <div className="absolute bottom-6 md:bottom-8 left-0 w-full text-center px-6">
-              <p className="text-princess-gold font-serif text-xl md:text-2xl tracking-wide italic leading-relaxed">
+              <p className="text-pink-600 font-serif font-bold text-xl md:text-2xl tracking-wide italic leading-relaxed">
                 "{memory.caption}"
               </p>
             </div>

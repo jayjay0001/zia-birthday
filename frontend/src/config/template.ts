@@ -23,7 +23,7 @@ export const TEMPLATE_CONFIG = {
   },
 
   star: {
-    name: "Princess Zia",
+    name: "Elaiza Zia Colleen",
     age: "7",
     favoriteColor: "Pink & Gold",
     favoriteFood: "Cupcakes 🧁",

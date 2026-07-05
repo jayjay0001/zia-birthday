@@ -1,38 +1,31 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import mapImg from '../../assets/castle_map.png';
+import { Sparkles, Image as ImageIcon, Crown, Star, Mail, Heart } from 'lucide-react';
+import mapImg from '../../assets/pink_castle.png';
 
 // Import our scenes (mini stories)
-import { WelcomeVideoScene } from './WelcomeVideoScene';
 import { MemoriesScene } from './MemoriesScene';
 import { ThemeScene } from './ThemeScene';
 import { DetailsScene } from './DetailsScene';
 import { RSVPScene } from './RSVPScene';
+import { CelebrantScene } from './CelebrantScene';
 
 type Hotspot = {
   id: string;
   label: string;
   x: string;
   y: string;
-  icon: string;
+  icon: React.ReactNode;
   component: React.ReactNode;
 };
 
 const HOTSPOTS: Hotspot[] = [
   {
-    id: "welcome",
-    label: "Royal Proclamation",
-    x: "50%",
-    y: "35%",
-    icon: "📜",
-    component: <WelcomeVideoScene />
-  },
-  {
     id: "memories",
     label: "Portrait Gallery",
     x: "15%",
     y: "30%",
-    icon: "🖼️",
+    icon: <ImageIcon className="w-8 h-8 text-princess-gold drop-shadow-md" />,
     component: <MemoriesScene />
   },
   {
@@ -40,7 +33,7 @@ const HOTSPOTS: Hotspot[] = [
     label: "Dress Code",
     x: "85%",
     y: "35%",
-    icon: "👗",
+    icon: <Crown className="w-8 h-8 text-princess-gold drop-shadow-md" />,
     component: <ThemeScene />
   },
   {
@@ -48,15 +41,23 @@ const HOTSPOTS: Hotspot[] = [
     label: "The Grand Carriage",
     x: "70%",
     y: "75%",
-    icon: "🎠",
+    icon: <Star className="w-8 h-8 text-princess-gold drop-shadow-md" />,
     component: <DetailsScene />
+  },
+  {
+    id: "celebrant",
+    label: "The Birthday Princess",
+    x: "48%",
+    y: "55%",
+    icon: <Heart className="w-8 h-8 text-pink-400 drop-shadow-md fill-pink-400" />,
+    component: <CelebrantScene />
   },
   {
     id: "rsvp",
     label: "Royal Mailbox",
     x: "30%",
     y: "80%",
-    icon: "📫",
+    icon: <Mail className="w-8 h-8 text-princess-gold drop-shadow-md" />,
     component: <RSVPScene />
   }
 ];
@@ -64,6 +65,14 @@ const HOTSPOTS: Hotspot[] = [
 export const InteractiveMap = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [activeSpot, setActiveSpot] = useState<Hotspot | null>(null);
+  const [foundItems, setFoundItems] = useState<string[]>([]);
+  
+  const handleSpotClick = (spot: Hotspot) => {
+    if (!foundItems.includes(spot.id)) {
+      setFoundItems(prev => [...prev, spot.id]);
+    }
+    setActiveSpot(spot);
+  };
   
   return (
     <div ref={containerRef} className="w-full h-[100svh] overflow-hidden bg-black relative">
@@ -79,34 +88,56 @@ export const InteractiveMap = () => {
         }}
         transition={{ duration: 1.2, ease: "easeInOut" }}
         className="w-[200vw] h-[200vh] md:w-[150vw] md:h-[150vh] absolute top-[-50vh] left-[-50vw] md:top-[-25vh] md:left-[-25vw] cursor-grab active:cursor-grabbing touch-none"
-        style={{ backgroundImage: `url(${mapImg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+        style={{ 
+          backgroundImage: `url(${mapImg})`, 
+          backgroundSize: 'cover', 
+          backgroundPosition: 'center'
+        }}
       >
         {/* Render Hotspots */}
-        {HOTSPOTS.map((spot) => (
-          <div 
-            key={spot.id}
-            className="absolute -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-2 cursor-pointer z-10"
-            style={{ left: spot.x, top: spot.y }}
-            onClick={() => setActiveSpot(spot)}
-          >
-            {/* Pulsing glow */}
-            <div className="absolute inset-0 bg-princess-gold rounded-full animate-ping opacity-60"></div>
-            
-            {/* The Icon */}
-            <motion.div 
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              className="relative w-16 h-16 md:w-20 md:h-20 bg-white/20 backdrop-blur-md rounded-full border-2 border-princess-gold shadow-[0_0_20px_rgba(243,198,35,0.8)] flex items-center justify-center text-3xl md:text-4xl hover:bg-white/40 transition-colors"
+        {HOTSPOTS.map((spot) => {
+          const isFound = foundItems.includes(spot.id);
+
+          return (
+            <div 
+              key={spot.id}
+              className="absolute -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-2 cursor-pointer z-10"
+              style={{ left: spot.x, top: spot.y }}
+              onClick={() => handleSpotClick(spot)}
             >
-              {spot.icon}
-            </motion.div>
-            
-            {/* Label */}
-            <div className="bg-black/70 backdrop-blur-sm text-princess-gold font-serif px-4 py-1.5 rounded-full text-xs md:text-sm shadow-xl whitespace-nowrap border border-princess-gold/30 pointer-events-none">
-              {spot.label}
+              {/* Pulsing glow */}
+              <div className={`absolute inset-0 rounded-full animate-ping opacity-60 ${isFound ? 'bg-princess-gold' : 'bg-white'}`}></div>
+              
+              {/* The Icon */}
+              <motion.div 
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                animate={isFound ? { rotateY: [0, 360] } : {}}
+                transition={{ duration: 0.6 }}
+                className={`relative w-16 h-16 md:w-20 md:h-20 backdrop-blur-md rounded-full border-2 shadow-[0_0_20px_rgba(243,198,35,0.8)] flex items-center justify-center transition-colors ${
+                  isFound 
+                    ? 'bg-white/20 border-princess-gold hover:bg-white/40' 
+                    : 'bg-black/40 border-white/50 hover:bg-black/60'
+                }`}
+              >
+                {isFound ? spot.icon : <Sparkles className="w-8 h-8 text-white animate-pulse drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]" />}
+              </motion.div>
+              
+              {/* Label */}
+              <AnimatePresence>
+                {isFound && (
+                  <motion.div 
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="bg-black/70 backdrop-blur-sm text-princess-gold font-serif px-4 py-1.5 rounded-full text-xs md:text-sm shadow-xl whitespace-nowrap border border-princess-gold/30 pointer-events-none"
+                  >
+                    {spot.label}
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </motion.div>
 
       {/* Persistent UI Overlay */}
@@ -121,8 +152,8 @@ export const InteractiveMap = () => {
         </motion.h1>
       </div>
       <div className="absolute bottom-8 left-0 w-full flex justify-center pointer-events-none z-20">
-        <div className="bg-black/50 backdrop-blur-md px-6 py-2 rounded-full border border-white/20 text-white/90 text-xs md:text-sm font-sans shadow-lg uppercase tracking-[0.2em]">
-          Drag to explore • Tap to discover
+        <div className="bg-black/50 backdrop-blur-md px-6 py-2 rounded-full border border-princess-gold/50 text-[#f3c623] text-xs md:text-sm font-sans shadow-lg uppercase tracking-[0.2em] animate-pulse">
+          Find the hidden magic! Tap glowing stars to reveal.
         </div>
       </div>
 
