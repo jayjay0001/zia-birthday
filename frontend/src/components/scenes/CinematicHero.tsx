@@ -93,6 +93,16 @@ export const CinematicHero = ({ startVideo, onOpenDoors }: { startVideo?: boolea
           )}
         </AnimatePresence>
       </div>
+
+      {/* Skip Button */}
+      <div className="absolute top-12 right-6 z-50">
+        <button
+          onClick={onOpenDoors}
+          className="px-4 py-2 bg-black/40 backdrop-blur-sm border border-white/30 text-white/70 text-xs uppercase tracking-widest rounded-full hover:bg-white/20 hover:text-white transition-all"
+        >
+          Skip Intro
+        </button>
+      </div>
     </div>
   );
 };
